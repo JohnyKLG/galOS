@@ -4,17 +4,24 @@ async function galOS(ins){
     bd = document.body;
     aw = 'wall.jpg';
     lg = 'logo.png';
-    pc = "style='font:13px monospace;color:lime;line-height:7px;'";
+    pc = "style='color:lime;line-height:7px'";
     pl = "style='color:yellow'";
     pb = "style='color:orange'";
     bd.style.background = "#000";
+    bd.style.color = "#fff";
+    bd.style.font ="12px monospace"
     // Verificar se há requisição para boot
     if(ins === "boot"){
         // Carregar os scripts do sistema
+        bd.innerHTML = "||<br>|| github.com/JohnyKLG";
+        bd.innerHTML += "<br>||<br>|| Inicializando";
         document.documentElement.style.cursor = 'none';
-        bd.innerHTML += "<p "+pc+">Carregando gerenciador de registros <l "+pl+">reg.js</l></p>";
-        var s0 = document.createElement('script');s0.src = 'reg.js';hd.appendChild(s0);
         function load(ms){return new Promise(resolve => setTimeout(resolve, ms));}
+        for(var i = 0; i < 30; i++){await load(100);bd.innerHTML += ".";}
+        bd.innerHTML += "<br>||<br><h2 "+pc+">KLG <l "+pl+">galOS v1.0.0</l></h2>";
+        await load(1500);
+        bd.innerHTML = "<p "+pc+">Carregando gerenciador de registros <l "+pl+">reg.js</l></p>";
+        var s0 = document.createElement('script');s0.src = 'reg.js';hd.appendChild(s0);
         await load(500);
         bd.innerHTML += "<p "+pc+">Carregando engine de gráficos <l "+pl+">gen.js</l></p>";
         var s1 = document.createElement('script');s1.src = 'gen.js';hd.appendChild(s1);
@@ -25,7 +32,7 @@ async function galOS(ins){
         bd.innerHTML += "<p "+pc+">Carregando gerenciador de autenticação <l "+pl+">auth.js</l></p>";
         var s3 = document.createElement('script');s3.src = 'auth.js';hd.appendChild(s3);
         await load(500);
-        // Definir tag de título
+        // Definir tag de título para o interpretador
         bd.innerHTML += "<p "+pc+">Identificando para o interpretador <b "+pb+">KLG galOS</b> <l "+pl+">v1.0.0</l></p>";
         var tt = document.createElement('title');tt.innerText = 'galOS';hd.appendChild(tt);
         await load(500);
@@ -43,16 +50,10 @@ async function galOS(ins){
         // Iniciar funções do xGen
         insertG('logo',100,167,0,0,30,30);
         await load(1000);
-        document.documentElement.style.cursor = 'auto';
+        document.documentElement.style.cursor = 'default';
         bd.innerHTML += "<p "+pc+">Iniciando tela de autenticação <l "+pl+">auth</l></p>";
         await load(1000);
-        bd.innerHTML = "";      
-        galOS('auth');
-    }
-    // Verificar se há requisição para tela de autenticação
-    if(ins === "auth"){
-        bd.style.background = "url('"+aw+"') no-repeat center top fixed";
-        bd.style.backgroundSize = 'cover';
+        bd.innerHTML = null;
         gAuth();
     }
 }
