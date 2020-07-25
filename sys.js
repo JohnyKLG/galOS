@@ -11,6 +11,7 @@ async function galOS(ins){
     // Verificar se há requisição para boot
     if(ins === "boot"){
         // Carregar os scripts do sistema
+        document.documentElement.style.cursor = 'none';
         bd.innerHTML += "<p "+pc+">Carregando gerenciador de registros <l "+pl+">reg.js</l></p>";
         var s0 = document.createElement('script');s0.src = 'reg.js';hd.appendChild(s0);
         function load(ms){return new Promise(resolve => setTimeout(resolve, ms));}
@@ -41,7 +42,8 @@ async function galOS(ins){
         await load(2000);
         // Iniciar funções do xGen
         insertG('logo',100,167,0,0,30,30);
-        await load(1000); 
+        await load(1000);
+        document.documentElement.style.cursor = 'auto';
         bd.innerHTML += "<p "+pc+">Iniciando tela de autenticação <l "+pl+">auth</l></p>";
         await load(1000);
         bd.innerHTML = "";      
