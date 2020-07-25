@@ -2,7 +2,8 @@ async function galOS(ins){
     // Definir variáveis de boot
     hd = document.head;
     bd = document.body;
-    aw = 'aw.jpg';
+    aw = 'wall.jpg';
+    lg = 'logo.png';
     pc = "style='font:13px monospace;color:lime;line-height:7px;'";
     pl = "style='color:yellow'";
     pb = "style='color:orange'";
@@ -37,7 +38,10 @@ async function galOS(ins){
             m1.content = 'width=device-width, initial-scale=1';hd.appendChild(m1);
         await load(500);
         bd.innerHTML += "<p "+pc+">Iniciando engine gráfica <b "+pb+">KLG xGen</b> <l "+pl+">v1.0.0</l></p>";
-        await load(3000); 
+        await load(2000);     
+        var logo = 'position:absolute;bottom:30px;right:30px;width:100px;height:167px;background:url('+lg+');filter:invert(1)';
+        var lgo = document.createElement('logo');lgo.style = logo;lgo.id = 'logo';bd.appendChild(lgo);
+        await load(1000); 
         bd.innerHTML += "<p "+pc+">Iniciando tela de autenticação <l "+pl+">auth</l></p>";
         await load(1000);
         bd.innerHTML = "";      
