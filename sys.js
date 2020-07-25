@@ -39,6 +39,7 @@ async function galOS(ins){
         await load(500);
         bd.innerHTML += "<p "+pc+">Iniciando engine gráfica <b "+pb+">KLG xGen</b> <l "+pl+">v1.0.0</l></p>";
         await load(2000);
+        // Iniciar funções do xGen
         insertG('logo',100,167,0,0,30,30);
         await load(1000); 
         bd.innerHTML += "<p "+pc+">Iniciando tela de autenticação <l "+pl+">auth</l></p>";
