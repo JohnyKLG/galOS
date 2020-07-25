@@ -4,7 +4,7 @@ function insertG(obj,w,h,t,l,b,r){
         var logo = 'position:absolute;bottom:'+b+'px;right:'+r+'px;width:'+w+'px;height:'+h+'px;background:url('+lg+');filter:invert(1)';
         var lgo = document.createElement('logo');lgo.style = logo;lgo.id = 'logo';bd.appendChild(lgo);
     }
-    // Objeto gráfico logo
+    // Objeto gráfico popup do auth
     if(obj === 'auth'){
         var dstl = 'position:absolute;top:'+t+'%;left:'+l+'%;width:'+w+'px;height:'+h+'px;';
             dstl+= 'border-radius:9px;background:#cccccccc;';
