@@ -38,9 +38,8 @@ async function galOS(ins){
             m1.content = 'width=device-width, initial-scale=1';hd.appendChild(m1);
         await load(500);
         bd.innerHTML += "<p "+pc+">Iniciando engine gráfica <b "+pb+">KLG xGen</b> <l "+pl+">v1.0.0</l></p>";
-        await load(2000);     
-        var logo = 'position:absolute;bottom:30px;right:30px;width:100px;height:167px;background:url('+lg+');filter:invert(1)';
-        var lgo = document.createElement('logo');lgo.style = logo;lgo.id = 'logo';bd.appendChild(lgo);
+        await load(2000);
+        insertG('logo',100,167,0,0,30,30);
         await load(1000); 
         bd.innerHTML += "<p "+pc+">Iniciando tela de autenticação <l "+pl+">auth</l></p>";
         await load(1000);
