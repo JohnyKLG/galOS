@@ -1,12 +1,11 @@
 function load(ms){return new Promise(resolve => setTimeout(resolve, ms));}
-/* ---------- Johny KLG -----------------
-Interface gráfica baseada em hipertexto
-sendo gerenciada pela plataforma KLG Gen
-as plataformas estão sendo desenvolvidas
-puramente em javascript para HTML5.
-
-Brasil, julho de 2020
--------------------------------------- */
+/* ----------------- Johny KLG -----------------+
+| Interface gráfica operacional multiplataforma |
+| baseada em hipertexto HTML5 sendo puramente   |
+| desenvolvida em JavaScript.                   |
+|                                               |
+| Brasil, julho de 2020                         |
++--------------------------------------------- */
 async function galOS(ins){
     // Definir variáveis de boot
     hd = document.head;
