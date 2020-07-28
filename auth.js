@@ -1,19 +1,30 @@
 function gAuth(){
     genClear();
     insertG('logo','logo',100,167,0,0,30,30);    
-    bd.style.background = "url('"+aw+"') no-repeat center top fixed";
+    bd.style.background = "url('"+auth64+"') no-repeat center top fixed";
     bd.style.backgroundSize = 'cover';
     // Verificar se há usuário
     if(localStorage.getItem('user')){
         var stl = document.createElement('style');
-        stl.innerHTML = "#auth{margin:-67px -135px;}"
+        stl.innerHTML = "#auth{margin:-102px -90px;text-align:center;}"        
+        stl.innerHTML+= "#auth h2{font-size:16pt;margin:0;}"
+        stl.innerHTML+= "#auth span{font-size:8pt;margin:0;}"
+        stl.innerHTML+= "#auth div{margin:9px 45px;width:90px;height:90px;background:url('klg.jpg') no-repeat;";
+        stl.innerHTML+= "background-size:90px;border:1px solid #888;border-radius:50%;}"
+        stl.innerHTML+= "#auth input{width:calc(100% - 16px);padding:2px 7px;height:30px;text-align:center;";
+        stl.innerHTML+= "margin:9px 0;border:1px solid #999;background:#eeeeee77;border-radius:5px;outline:none;}";
+        stl.innerHTML+= "#auth input:hover{background:#eeeeeeaa;}";
         hd.appendChild(stl);
-        insertG('popup','auth',270,135,50,50,0,0);
+        insertG('popup','auth',180,204,50,50,0,0);
         auth = document.getElementById('auth');
         var userA = localStorage.getItem("user");
-        user = userA.split(";");
-        auth.innerHTML = '<h2>Olá, '+user[2]+'</h2>';
-        auth.innerHTML += '<span>'+user[1]+'</span><br><br>';
+        user = userA.split("*");var usr;
+        if(user[2] == '0'){usr = user[0].split(" ")[0];}else{usr = user[2];}
+        auth.innerHTML = '<div></div>';
+        auth.innerHTML+= '<h2>'+usr+'</h2>';
+        auth.innerHTML+= '<span>'+user[1]+'</span>';
+        auth.innerHTML+= '<input id="pw" type="password" placeholder="Digite sua senha"></input>';
+        document.getElementById('pw').focus();
     }else{
         var stl = document.createElement('style');
         stl.innerHTML = "#auth{margin:-67px -135px;}"
@@ -23,9 +34,9 @@ function gAuth(){
         insertG('popup','auth',270,135,50,50,0,0);
         auth = document.getElementById('auth');
         auth.innerHTML = '<h2>Olá, tudo bem?</h2>';
-        auth.innerHTML += '<span>Não identificamos nenhum usuário cadastrado neste host, o que você gostaria de fazer?</span><br><br>';
-        auth.innerHTML += '<button class="btn" onclick="gUser(\'new\')" style="margin-right:10px">Cadastrar usuário</button>';
-        auth.innerHTML += '<button class="btn" onclick="gUser(\'imp\')">Importar usuário</button>';
+        auth.innerHTML+= '<span>Não identificamos nenhum usuário cadastrado neste host, o que você gostaria de fazer?</span><br><br>';
+        auth.innerHTML+= '<button class="btn" onclick="gUser(\'new\')" style="margin-right:10px">Cadastrar usuário</button>';
+        auth.innerHTML+= '<button class="btn" onclick="gUser(\'imp\')">Importar usuário</button>';
     }
 }
 function gUser(ins){
@@ -44,14 +55,14 @@ function gUser(ins){
         insertG('popup','pnew',300,350,50,50,0,0);
         pnew = document.getElementById('pnew');
         pnew.innerHTML = '<h3>Novo usuário</h3>';
-        pnew.innerHTML += '<input id="fd0" type="text" placeholder="Qual o seu nome? (completo)"></input>';
-        pnew.innerHTML += '<input id="fd1" type="email" placeholder="Qual o seu e-mail?"></input>';
-        pnew.innerHTML += '<input id="fd2" type="email" placeholder="Confirme seu e-mail."></input>';
-        pnew.innerHTML += '<input id="fd3" type="text" placeholder="Se preferir utilizar um nickname, digite-o aqui."></input>';
-        pnew.innerHTML += '<input id="fd4" type="password" placeholder="Crie uma senha."></input>';
-        pnew.innerHTML += '<input id="fd5" type="password" placeholder="Confirme a senha." style="margin-bottom:15px"></input>';
-        pnew.innerHTML += '<button class="btn" id="cnl" onclick="gAuth()" style="margin-right:10px">Cancelar</button>';
-        pnew.innerHTML += '<button class="btn" onclick="gReg(\'user\')">Concluir</button>';
+        pnew.innerHTML+= '<input id="fd0" type="text" placeholder="Qual o seu nome? (completo)"></input>';
+        pnew.innerHTML+= '<input id="fd1" type="email" placeholder="Qual o seu e-mail?"></input>';
+        pnew.innerHTML+= '<input id="fd2" type="email" placeholder="Confirme seu e-mail."></input>';
+        pnew.innerHTML+= '<input id="fd3" type="text" placeholder="Se preferir utilizar um nickname, digite-o aqui."></input>';
+        pnew.innerHTML+= '<input id="fd4" type="password" placeholder="Crie uma senha."></input>';
+        pnew.innerHTML+= '<input id="fd5" type="password" placeholder="Confirme a senha." style="margin-bottom:15px"></input>';
+        pnew.innerHTML+= '<button class="btn" id="cnl" onclick="gAuth()" style="margin-right:10px">Cancelar</button>';
+        pnew.innerHTML+= '<button class="btn" onclick="gReg(\'user\')">Concluir</button>';
     }else if(ins === 'imp'){
         var stl = document.createElement('style');
         stl.innerHTML = "#pimp{margin:-91px -149px;}"
@@ -67,12 +78,12 @@ function gUser(ins){
         insertG('popup','pimp',298,182,50,50,0,0);
         pimp = document.getElementById('pimp');
         pimp.innerHTML = '<h3>Importar usuário</h3>';
-        pimp.innerHTML += '<span>Por favor digite sua chave pessoal, para iniciar o processo de validação de identidade.</span><br><br>';
-        pimp.innerHTML += '<input id="fd0" type="text" maxlength="4"></input>'+sep;
-        pimp.innerHTML += '<input id="fd1" type="text" maxlength="4"></input>'+sep;
-        pimp.innerHTML += '<input id="fd2" type="text" maxlength="4"></input>'+sep;
-        pimp.innerHTML += '<input id="fd3" type="text" maxlength="4" style="margin-bottom:15px"></input>';
-        pimp.innerHTML += '<button class="btn" onclick="gReg(\'code\')">Concluir</button>';
-        pimp.innerHTML += '<button class="btn" id="cnl" onclick="gAuth()" style="margin-right:10px">Cancelar</button>';
+        pimp.innerHTML+= '<span>Por favor digite sua chave pessoal, para iniciar o processo de validação de identidade.</span><br><br>';
+        pimp.innerHTML+= '<input id="fd0" type="text" maxlength="4"></input>'+sep;
+        pimp.innerHTML+= '<input id="fd1" type="text" maxlength="4"></input>'+sep;
+        pimp.innerHTML+= '<input id="fd2" type="text" maxlength="4"></input>'+sep;
+        pimp.innerHTML+= '<input id="fd3" type="text" maxlength="4" style="margin-bottom:15px"></input>';
+        pimp.innerHTML+= '<button class="btn" onclick="gReg(\'code\')">Concluir</button>';
+        pimp.innerHTML+= '<button class="btn" id="cnl" onclick="gAuth()" style="margin-right:10px">Cancelar</button>';
     }
 }
