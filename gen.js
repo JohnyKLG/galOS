@@ -27,7 +27,7 @@ function dragG(id,act){
 function insertG(obj,id,w,h,t,l,b,r){
     // Objeto gráfico logo
     if(obj === 'logo'){
-        var logo = 'position:absolute;bottom:'+b+'px;right:'+r+'px;width:'+w+'px;height:'+h+'px;background:url('+lg+');filter:invert(1)';
+        var logo = 'position:absolute;bottom:'+b+'px;right:'+r+'px;width:'+w+'px;height:'+h+'px;background:url('+logo64+');filter:invert(1)';
         var lgo = document.createElement('logo');lgo.style = logo;lgo.id = id;bd.appendChild(lgo);
     }
     // Objeto gráfico popup
