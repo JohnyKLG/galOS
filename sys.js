@@ -10,8 +10,6 @@ async function galOS(ins){
     // Definir variáveis de boot
     hd = document.head;
     bd = document.body;
-    aw = 'wall.jpg';
-    lg = 'logo.png';
     ps = "style='color:lime;font:57px sans-serif'";
     pc = "style='color:lime'";
     pl = "style='color:yellow'";
@@ -38,11 +36,14 @@ async function galOS(ins){
         bd.innerHTML += "<p "+pc+">Carregando engine de gráficos <l "+pl+">gen.js</l></p>";
         var s1 = document.createElement('script');s1.src = 'gen.js';hd.appendChild(s1);
         await load(200);
+        bd.innerHTML += "<p "+pc+">Carregando script de imagem <l "+pl+">i64.js</l></p>";
+        var s2 = document.createElement('script');s2.src = 'i64.js';hd.appendChild(s2);
+        await load(200);
         bd.innerHTML += "<p "+pc+">Carregando gerenciador de aplicativos <l "+pl+">app.js</l></p>";
-        var s2 = document.createElement('script');s2.src = 'app.js';hd.appendChild(s2);
+        var s3 = document.createElement('script');s3.src = 'app.js';hd.appendChild(s3);
         await load(200);
         bd.innerHTML += "<p "+pc+">Carregando gerenciador de autenticação <l "+pl+">auth.js</l></p>";
-        var s3 = document.createElement('script');s3.src = 'auth.js';hd.appendChild(s3);
+        var s4 = document.createElement('script');s4.src = 'auth.js';hd.appendChild(s4);
         await load(100);
         // Definir tag de título para o interpretador
         bd.innerHTML += "<p "+pc+">Identificando para o host <b "+pb+">KLG galOS</b> v1.0.0</p>";
@@ -66,7 +67,7 @@ async function galOS(ins){
         document.documentElement.style.cursor = 'default';
         bd.innerHTML += "<p "+pc+">Iniciando tela de autenticação <l "+pl+">auth</l></p>";
         for(var i = 0; i < 10; i++){await load(100);bd.innerHTML += "&block;";}    
-        bd.style.background = "#000 url('"+aw+"') no-repeat";
+        bd.style.background = "#000 url('"+auth64+"') no-repeat";
         bd.style.backgroundSize = '3px';
         for(var i = 0; i < 15; i++){await load(100);bd.innerHTML += "&block;";}
         gAuth();
