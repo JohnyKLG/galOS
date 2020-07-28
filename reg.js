@@ -9,8 +9,8 @@ function gReg(opr){
         if(mail == cfml){
             var mail = document.getElementById('fd1').value;
             if(pass == cfpw){
-                if(nick != null){nick = nick}else{nick = '0';}
-                var str = name+";"+mail+";"+nick+";"+document.getElementById('fd4').value;
+                if(nick){nick = nick}else{nick = '0';}
+                var str = name+"*"+mail+"*"+nick+"*"+document.getElementById('fd4').value;
                 localStorage.setItem('user', str);
                 alert('sucesso');
                 gAuth();                
