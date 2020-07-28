@@ -11,13 +11,18 @@ document.addEventListener("dragstart", function( event ){
     event.dataTransfer.setDragImage(img, 0, 0);
 }, false);
 // Definir posição do objeto
-function dragG(id){    
-    eid = document.getElementById(id);
+function dragG(id,act){    
+    var eid = document.getElementById(id);
     var e = window.event;
-    if(e.clientY >= 1){y = e.clientY}
-    if(e.clientX >= 1){x = e.clientX}
-    eid.style.top = y+"px";
-    eid.style.left = x+"px";
+    if(act == "s"){
+        if(e.clientY >= 1){y = e.clientY}
+        if(e.clientX >= 1){x = e.clientX}
+        eid.style.top = y+"px";
+        eid.style.left = x+"px";
+        eid.style.zIndex = "10";
+    }else if(act == "e"){
+        eid.style.zIndex = "0";
+    }
 }
 function insertG(obj,id,w,h,t,l,b,r){
     // Objeto gráfico logo
@@ -31,11 +36,16 @@ function insertG(obj,id,w,h,t,l,b,r){
             dstl+= 'border-radius:9px;background:#cccccccd;color:#333;';
             dstl+= 'box-shadow: 0px 0px 10px #333;font:9.5pt sans-serif;padding:0 9px';
         var div = document.createElement('div');div.style = dstl;div.id = id;
-        div.draggable = "true";div.setAttribute('ondrag','dragG(this.id)');bd.appendChild(div);
+        div.draggable = "true";div.setAttribute('ondrag','dragG(this.id,"s")');
+        div.setAttribute('ondragend','dragG(this.id,"e")');bd.appendChild(div);
     }
 }
 function genClear(){
-    bd.innerHTML = "";
+    var stl = document.getElementsByTagName("style")[0];
+    if(stl){
+        stl.remove();
+    }
+    bd.innerHTML = null;
     bd.style.font = "";
     bd.style.color = "";
 }
