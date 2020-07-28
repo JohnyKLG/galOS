@@ -22,6 +22,7 @@ async function galOS(ins){
     // Verificar se há requisição para boot
     if(ins === "boot"){
         // Carregar os scripts do sistema
+        bd.setAttribute('ondragover','event.preventDefault()');
         bd.innerHTML = "||<br>|| github.com/JohnyKLG";
         bd.innerHTML += "<br>||<br>|| Inicializando";
         document.documentElement.style.cursor = 'none';
@@ -68,7 +69,6 @@ async function galOS(ins){
         bd.style.background = "#000 url('"+aw+"') no-repeat";
         bd.style.backgroundSize = '3px';
         for(var i = 0; i < 15; i++){await load(100);bd.innerHTML += "&block;";}
-        bd.innerHTML = null;
         gAuth();
     }
 }
