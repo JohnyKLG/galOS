@@ -20,7 +20,7 @@ function gAuth(){
         hd.appendChild(stl);
         insertG('popup','auth',180,204,50,50,0,0);
         auth = document.getElementById('auth');
-        auth.innerHTML = '<div></div>';
+        auth.innerHTML = '<div ondblclick="gUser(\'new\')"></div>';
         auth.innerHTML+= '<h2>'+usr+'</h2>';
         auth.innerHTML+= '<span>'+user[1]+'</span>';
         auth.innerHTML+= '<input id="pw" type="password" placeholder="Digite sua senha"></input>';
