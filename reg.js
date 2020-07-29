@@ -42,8 +42,8 @@ var gRegFile = function(event){
 };
 function toBase64String(img) {
     var canvas = document.createElement("canvas");
-    canvas.width = img.width;
-    canvas.height = img.height;
+    canvas.width = '90';
+    canvas.height = '90';
     var ctx = canvas.getContext("2d");
     ctx.drawImage(img, 0, 0, 90, 90);
     var dataURL = canvas.toDataURL("image/png");
