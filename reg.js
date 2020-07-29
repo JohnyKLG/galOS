@@ -10,7 +10,7 @@ function gReg(opr){
             var mail = document.getElementById('fd1').value;
             if(pass == cfpw){
                 if(nick){nick = nick}else{nick = '0';}
-                var str = name+"*"+mail+"*"+nick+"*"+document.getElementById('fd4').value;
+                var str = name+"*"+mail+"*"+nick+"*"+document.getElementById('fd4').value+"*"+localStorage.getItem('pic');
                 localStorage.setItem('user', str);
                 alert('sucesso');
                 gAuth();                
@@ -26,4 +26,29 @@ function gReg(opr){
         var code = str.toUpperCase();
         alert('code = '+code);
     }
+}
+var gRegFile = function(event){
+    var prv = document.getElementById('prev');
+    prv.src = URL.createObjectURL(event.target.files[0]);
+    var out = document.getElementById('gFileOut');
+    out.src = URL.createObjectURL(event.target.files[0]);
+    prv.onload = function(){
+        URL.revokeObjectURL(prv.src);
+    }
+    out.onload = function(){
+        URL.revokeObjectURL(out.src);
+        gRegProv();
+    }
+};
+function toBase64String(img) {
+    var canvas = document.createElement("canvas");
+    canvas.width = img.width;
+    canvas.height = img.height;
+    var ctx = canvas.getContext("2d");
+    ctx.drawImage(img, 0, 0);
+    var dataURL = canvas.toDataURL("image/png");
+    return dataURL;
+}
+function gRegProv(){
+    localStorage.setItem('pic', toBase64String(document.getElementById('gFileOut')));
 }
