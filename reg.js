@@ -6,16 +6,18 @@ function gReg(opr){
         var nick = document.getElementById('fd3').value;
         var pass = document.getElementById('fd4').value;
         var cfpw = document.getElementById('fd5').value;
-        if(mail == cfml){
-            var mail = document.getElementById('fd1').value;
-            if(pass == cfpw){
-                if(nick){nick = nick}else{nick = '0';}
-                var str = name+"*"+mail+"*"+nick+"*"+document.getElementById('fd4').value+"*"+localStorage.getItem('pic');
-                localStorage.setItem('user', str);
-                alert('sucesso');
-                gAuth();                
-            }else{alert('erro');}
-        }else{alert('erro');}
+        if(name && mail && pass){
+            if(mail == cfml){
+                var mail = document.getElementById('fd1').value;
+                if(pass == cfpw){
+                    if(nick){nick = nick}else{nick = '0';}
+                    var str = name+"*"+mail+"*"+nick+"*"+document.getElementById('fd4').value+"*"+localStorage.getItem('pic');
+                    localStorage.setItem('user', str);
+                    localStorage.removeItem('pic');
+                    gAlert('cadOK','gAuth()');                
+                }else{gAlert('pass','0');}
+            }else{gAlert('mail','0');}
+        }else{gAlert('empty','0');}
     }
     if(opr == 'code'){
         var cd0 = document.getElementById('fd0').value;
@@ -37,18 +39,9 @@ var gRegFile = function(event){
     }
     out.onload = function(){
         URL.revokeObjectURL(out.src);
-        gRegProv();
+        gRegPrev();
     }
 };
-function toBase64String(img) {
-    var canvas = document.createElement("canvas");
-    canvas.width = '90';
-    canvas.height = '90';
-    var ctx = canvas.getContext("2d");
-    ctx.drawImage(img, 0, 0, 90, 90);
-    var dataURL = canvas.toDataURL("image/png");
-    return dataURL;
-}
-function gRegProv(){
+function gRegPrev(){
     localStorage.setItem('pic', toBase64String(document.getElementById('gFileOut')));
 }
