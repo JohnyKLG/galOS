@@ -45,7 +45,7 @@ function toBase64String(img) {
     canvas.width = img.width;
     canvas.height = img.height;
     var ctx = canvas.getContext("2d");
-    ctx.drawImage(img, 0, 0);
+    ctx.drawImage(img, 0, 0, 90, 90);
     var dataURL = canvas.toDataURL("image/png");
     return dataURL;
 }
