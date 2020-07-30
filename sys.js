@@ -36,14 +36,17 @@ async function galOS(ins){
         bd.innerHTML += "<p "+pc+">Carregando engine de gráficos <l "+pl+">gen.js</l></p>";
         var s1 = document.createElement('script');s1.src = 'gen.js';hd.appendChild(s1);
         await load(200);
-        bd.innerHTML += "<p "+pc+">Carregando script de imagem <l "+pl+">i64.js</l></p>";
-        var s2 = document.createElement('script');s2.src = 'i64.js';hd.appendChild(s2);
+        bd.innerHTML += "<p "+pc+">Carregando decoder de imagem <l "+pl+">i64.asm</l></p>";
+        var s2 = document.createElement('script');s2.src = 'i64.asm';hd.appendChild(s2);
+        await load(200);
+        bd.innerHTML += "<p "+pc+">Carregando decoder de imagem <l "+pl+">x64.asm</l></p>";
+        var s3 = document.createElement('script');s3.src = 'x64.asm';hd.appendChild(s3);
         await load(200);
         bd.innerHTML += "<p "+pc+">Carregando gerenciador de aplicativos <l "+pl+">app.js</l></p>";
-        var s3 = document.createElement('script');s3.src = 'app.js';hd.appendChild(s3);
+        var s4 = document.createElement('script');s4.src = 'app.js';hd.appendChild(s4);
         await load(200);
         bd.innerHTML += "<p "+pc+">Carregando gerenciador de autenticação <l "+pl+">auth.js</l></p>";
-        var s4 = document.createElement('script');s4.src = 'auth.js';hd.appendChild(s4);
+        var s5 = document.createElement('script');s5.src = 'auth.js';hd.appendChild(s5);
         await load(100);
         // Definir tag de título para o interpretador
         bd.innerHTML += "<p "+pc+">Identificando para o host <b "+pb+">KLG galOS</b> v1.0.0</p>";
