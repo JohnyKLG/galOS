@@ -90,7 +90,7 @@ async function galOS(ins){
         stl.innerHTML+= "#panel img{position:fixed;top:3px;right:9px;height:32px;border:3px solid #000000ba;border-radius:50%;}";
         stl.innerHTML+= "#dock{position:fixed;bottom:0px;left:50%;margin-left:-250px;width:500px;height:40px;";
         stl.innerHTML+= "background:#cccccccd;box-shadow: 0px 0px 10px #333;border-radius:20px 20px 0 0;display:none;}";
-        hd.appendChild(stl);await load(5000);
+        hd.appendChild(stl);await load(1500);
         bd.innerHTML = '<div id="panel"></div>';var pn = document.getElementById('panel')
         pn.innerHTML = '<button onclick="gDock()">Aplicativos</button>';
         pn.innerHTML+= '<button onclick="gDock()">Arquivos</button>';
