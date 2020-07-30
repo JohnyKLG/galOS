@@ -72,7 +72,34 @@ async function galOS(ins){
         for(var i = 0; i < 10; i++){await load(100);bd.innerHTML += "&block;";}    
         bd.style.background = "#000 url('"+auth64+"') no-repeat";
         bd.style.backgroundSize = '3px';
-        for(var i = 0; i < 15; i++){await load(100);bd.innerHTML += "&block;";}
+        for(var i = 0; i < 10; i++){await load(100);bd.innerHTML += "&block;";}    
+        bd.style.background = "#000 url('"+wall64+"') no-repeat";
+        bd.style.backgroundSize = '3px';
+        for(var i = 0; i < 5; i++){await load(100);bd.innerHTML += "&block;";}
         gAuth();
     }
+    // Verificar se há requisição para iniciar o x64
+    if(ins === "x64"){
+        var stl = document.createElement('style');
+        stl.innerHTML = "body{animation:colors 4s forwards;margin:0;}";
+        stl.innerHTML+= "@keyframes colors{0%{background:url('"+auth64+"') no-repeat center top fixed;background-size:cover;}";
+        stl.innerHTML+= "100%{background:url('"+wall64+"') no-repeat center top fixed;background-size:cover;}}";
+        stl.innerHTML+= "#panel{position:fixed;top:0px;left:0px;right:0px;height:35px;background:#000000ba;}";
+        stl.innerHTML+= "#panel button{height:35px;border:0;margin:0 9px;background:none;color:#aaa;outline:none;}";
+        stl.innerHTML+= "#panel button:hover{color:#fff;cursor:pointer;}"
+        stl.innerHTML+= "#panel img{position:fixed;top:3px;right:9px;height:32px;border:3px solid #000000ba;border-radius:50%;}";
+        stl.innerHTML+= "#dock{position:fixed;bottom:0px;left:50%;margin-left:-250px;width:500px;height:40px;";
+        stl.innerHTML+= "background:#cccccccd;box-shadow: 0px 0px 10px #333;border-radius:20px 20px 0 0;display:none;}";
+        hd.appendChild(stl);await load(5000);
+        bd.innerHTML = '<div id="panel"></div>';var pn = document.getElementById('panel')
+        pn.innerHTML = '<button onclick="gDock()">Aplicativos</button>';
+        pn.innerHTML+= '<button onclick="gDock()">Arquivos</button>';
+        pn.innerHTML+= '<img src="'+user[4]+'" title="'+usr+'">';
+        bd.innerHTML+= '<div id="dock"></div>';
+    }
+}
+function gDock(){
+    var dock = document.getElementById('dock').style;
+    if(dock.display == 'block'){dock.display = 'none';}
+    else{dock.display = 'block';}
 }
