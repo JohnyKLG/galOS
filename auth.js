@@ -5,8 +5,8 @@ function gAuth(){
     bd.style.backgroundSize = 'cover';
     // Verificar se há usuário
     if(localStorage.getItem('user')){
-        var userA = localStorage.getItem("user");
-        user = userA.split("*");var usr;
+        userA = localStorage.getItem("user");
+        user = userA.split("*");
         if(user[2] == '0'){usr = user[0].split(" ")[0];}else{usr = user[2];}
         var stl = document.createElement('style');
         stl.innerHTML = "#auth{margin:-102px -90px;text-align:center;}";        
@@ -41,9 +41,8 @@ function gAuth(){
 }
 function gLogin(pw){
     if(pw === user[3]){
-        genClear();   
-        bd.style.background = "url('"+wall64+"') no-repeat center top fixed";
-        bd.style.backgroundSize = 'cover';
+        genClear();
+        galOS('x64');
     }
 }
 function gUser(ins){
