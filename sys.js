@@ -81,7 +81,7 @@ async function galOS(ins){
     // Verificar se há requisição para iniciar o x64
     if(ins === "x64"){
         var stl = document.createElement('style');
-        stl.innerHTML = "body{animation:colors 4s forwards;margin:0;}";
+        stl.innerHTML = "body{animation:colors 1s forwards;margin:0;}";
         stl.innerHTML+= "@keyframes colors{0%{background:url('"+auth64+"') no-repeat center top fixed;background-size:cover;}";
         stl.innerHTML+= "100%{background:url('"+wall64+"') no-repeat center top fixed;background-size:cover;}}";
         stl.innerHTML+= "#panel{position:fixed;top:0px;left:0px;right:0px;height:35px;background:#000000ba;}";
