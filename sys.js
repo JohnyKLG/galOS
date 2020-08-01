@@ -10,15 +10,15 @@ async function galOS(ins){
     // Definir variáveis de boot
     hd = document.head;
     bd = document.body;
-    ps = "style='color:lime;font:57px sans-serif'";
-    pc = "style='color:lime'";
-    pl = "style='color:yellow'";
-    pb = "style='color:orange'";
-    bd.style.background = "#000";
-    bd.style.color = "#fff";
-    bd.style.font ="12px monospace"
     // Verificar se há requisição para boot
     if(ins === "boot"){
+        var ps = "style='color:lime;font:57px sans-serif'";
+        var pc = "style='color:lime'";
+        var pl = "style='color:yellow'";
+        var pb = "style='color:orange'";
+        bd.style.background = "#000";
+        bd.style.color = "#fff";
+        bd.style.font ="12px monospace"
         // Carregar os scripts do sistema
         bd.setAttribute('ondragover','event.preventDefault()');
         bd.innerHTML = "||<br>|| github.com/JohnyKLG";
@@ -81,21 +81,22 @@ async function galOS(ins){
     // Verificar se há requisição para iniciar o x64
     if(ins === "x64"){
         var stl = document.createElement('style');
-        stl.innerHTML = "body{animation:colors 1s forwards;margin:0;}";
-        stl.innerHTML+= "@keyframes colors{0%{background:url('"+auth64+"') no-repeat center top fixed;background-size:cover;}";
-        stl.innerHTML+= "100%{background:url('"+wall64+"') no-repeat center top fixed;background-size:cover;}}";
+        stl.innerHTML = "body{background:url('"+wall64+"') no-repeat center top fixed;background-size:cover;margin:0;}";
         stl.innerHTML+= "#panel{position:fixed;top:0px;left:0px;right:0px;height:35px;background:#000000ba;}";
         stl.innerHTML+= "#panel button{height:35px;border:0;margin:0 9px;background:none;color:#aaa;outline:none;}";
         stl.innerHTML+= "#panel button:hover{color:#fff;cursor:pointer;}"
         stl.innerHTML+= "#panel img{position:fixed;top:3px;right:9px;height:32px;border:3px solid #000000ba;border-radius:50%;}";
         stl.innerHTML+= "#dock{position:fixed;bottom:0px;left:50%;margin-left:-250px;width:500px;height:40px;";
         stl.innerHTML+= "background:#cccccccd;box-shadow: 0px 0px 10px #333;border-radius:20px 20px 0 0;display:none;}";
-        hd.appendChild(stl);await load(1500);
-        bd.innerHTML = '<div id="panel"></div>';var pn = document.getElementById('panel')
+
+        stl.innerHTML+= "#desk{position:fixed;top:0px;left:0px;bottom:0px;right:0;background:url('"+auth64+"') no-repeat center top fixed;background-size:cover;margin:0;}"
+        hd.appendChild(stl);
+        bd.innerHTML = '<div id="panel"></div>';var pn = document.getElementById('panel');
         pn.innerHTML = '<button onclick="gDock()">Aplicativos</button>';
         pn.innerHTML+= '<button onclick="gDock()">Arquivos</button>';
         pn.innerHTML+= '<img src="'+user[4]+'" title="'+usr+'">';
-        bd.innerHTML+= '<div id="dock"></div>';
+        bd.innerHTML+= '<div id="dock"></div>';        
+        bd.innerHTML+= '<div id="desk"></div>';
     }
 }
 function gDock(){
