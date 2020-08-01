@@ -4,4 +4,4 @@ Estou iniciando o desenvolvimento de uma interface operacional baseada em hipert
 
 O sistema será executado em duas etapas sendo uma local e outra em nuvem, haverá um gerenciamento de pacotes para sincronizar as duas etapas encriptando as informações se o usuário assim desejar, tornando o sistema portável e ao mesmo tempo seguro.
 
-Uma prévia do sistema pode ser executada em <a href="https://johnyklg.github.io/galOS/ini.html">https://johnyklg.github.io/galOS/ini.html</a>
+Uma prévia do sistema pode ser executada em <a href="https://johnyklg.github.io/galOS/ini.html" target="_blank">https://johnyklg.github.io/galOS/ini.html</a>
