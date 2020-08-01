@@ -39,10 +39,11 @@ function gAuth(){
         auth.innerHTML+= '<button class="btn" onclick="gUser(\'imp\')">Importar usuário</button>';
     }
 }
-function gLogin(pw){
+async function gLogin(pw){
     if(pw === user[3]){
         genClear();
         galOS('x64');
+        await load(1000);
         gEfect('desktop');
     }
 }
