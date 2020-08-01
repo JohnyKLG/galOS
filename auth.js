@@ -1,6 +1,6 @@
 function gAuth(){
     genClear();
-    insertG('logo','logo',100,167,0,0,30,30);    
+    insertG('logo','logo',100,167,0,0,30,30);
     bd.style.background = "url('"+auth64+"') no-repeat center top fixed";
     bd.style.backgroundSize = 'cover';
     // Verificar se há usuário
@@ -43,11 +43,14 @@ function gLogin(pw){
     if(pw === user[3]){
         genClear();
         galOS('x64');
+        gEfect('desktop');
     }
 }
 function gUser(ins){
     genClear();
     insertG('logo','logo',100,167,0,0,30,30);
+    bd.style.background = "url('"+auth64+"') no-repeat center top fixed";
+    bd.style.backgroundSize = 'cover';
     if(ins === 'new'){
         var stl = document.createElement('style');
         stl.innerHTML = "#pnew{margin:-175px -150px;text-align:right;}";
