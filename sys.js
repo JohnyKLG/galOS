@@ -36,11 +36,11 @@ async function galOS(ins){
         bd.innerHTML += "<p "+pc+">Carregando engine de gráficos <l "+pl+">gen.js</l></p>";
         var s1 = document.createElement('script');s1.src = 'gen.js';hd.appendChild(s1);
         await load(200);
-        bd.innerHTML += "<p "+pc+">Carregando decoder de imagem <l "+pl+">i64.asm</l></p>";
+        bd.innerHTML += "<p "+pc+">Carregando encoder de imagem <l "+pl+">i64.asm</l></p>";
         var s2 = document.createElement('script');s2.src = 'i64.asm';hd.appendChild(s2);
         await load(200);
-        bd.innerHTML += "<p "+pc+">Carregando decoder de imagem <l "+pl+">x64.asm</l></p>";
-        var s3 = document.createElement('script');s3.src = 'x64.asm';hd.appendChild(s3);
+        bd.innerHTML += "<p "+pc+">Carregando decoder de imagem <l "+pl+">x64.h</l></p>";
+        var s3 = document.createElement('script');s3.src = 'x64.h';hd.appendChild(s3);
         await load(200);
         bd.innerHTML += "<p "+pc+">Carregando gerenciador de aplicativos <l "+pl+">app.js</l></p>";
         var s4 = document.createElement('script');s4.src = 'app.js';hd.appendChild(s4);
