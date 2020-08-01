@@ -83,10 +83,16 @@ function gAlert(cnd,act){
 }
 function genClear(){
     var stl = document.getElementsByTagName("style")[0];
-    if(stl){
-        stl.remove();
-    }
+    if(stl){stl.remove();}
     bd.innerHTML = null;
-    bd.style.font = "";
-    bd.style.color = "";
+    bd.removeAttribute("onload");
+    bd.removeAttribute("style");
+}
+async function gEfect(efc){
+    if(efc == 'desktop'){
+        var desk = document.getElementById('desk');
+        for(var i = 99; i >= 10; i--){await load(10);desk.style.opacity = '0.'+i;}
+        for(var i = 9; i >= 0; i--){await load(10);desk.style.opacity = '0.0'+i;}
+        desk.remove();
+    }
 }
