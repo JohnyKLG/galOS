@@ -1,7 +1,7 @@
 # galOS
 <table>
   <tr>
-    <td><img src="galOS.png" width="400px"></td>
+    <td width="190"><img src="galOS.png" width="190"></td>
     <td>      
 Estou iniciando o desenvolvimento de uma interface operacional baseada em hipertexto, com o objetivo de simular de maneira leve e intuitiva um sistema operacional completo, com gerenciador de arquivos, aplicativos de escritório, aplicativos multimidia, etc...
 
