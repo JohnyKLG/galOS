@@ -24,10 +24,10 @@ function dragG(id,act){
         eid.style.zIndex = "0";
     }
 }
-function insertG(obj,id,w,h,t,l,b,r){
+function insertG(obj,id,w,h,t,l,b,r,m,i){
     // Objeto gráfico logo
     if(obj === 'logo'){
-        var logo = 'position:absolute;bottom:'+b+'px;right:'+r+'px;width:'+w+'px;height:'+h+'px;background:url('+logo64+');filter:invert(1)';
+        var logo = 'position:absolute;top:'+t+';left:'+l+';bottom:'+b+';right:'+r+';width:'+w+'px;height:'+h+'px;margin:'+m+';background:url('+logo64+');filter:invert('+i+')';
         var lgo = document.createElement('logo');lgo.style = logo;lgo.id = id;bd.appendChild(lgo);
     }
     // Objeto gráfico popup
