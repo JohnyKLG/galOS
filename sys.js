@@ -65,7 +65,7 @@ async function galOS(ins){
         bd.innerHTML += "<p "+pc+">Iniciando engine gráfica <b "+pb+">KLG xGen</b> <l "+pl+">v1.0.0</l></p>";
         bd.style.color = "orange";
         for(var i = 0; i < 25; i++){await load(100);bd.innerHTML += "&block;";}
-        insertG('logo','logo',100,167,0,0,30,30);
+        insertG('logo','logo',100,167,'auto','auto','30px','30px',0,1);
         for(var i = 0; i < 15; i++){await load(100);bd.innerHTML += "&block;";}
         document.documentElement.style.cursor = 'default';
         bd.innerHTML += "<p "+pc+">Iniciando tela de autenticação <l "+pl+">auth</l></p>";
