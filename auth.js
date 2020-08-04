@@ -1,6 +1,6 @@
-function gAuth(){
+async function gAuth(){
     genClear();
-    insertG('logo','logo',100,167,0,0,30,30);
+    insertG('logo','logo',100,167,'auto','auto','30px','30px',0,1);
     bd.style.background = "url('"+auth64+"') no-repeat center top fixed";
     bd.style.backgroundSize = 'cover';
     // Verificar se há usuário
@@ -17,6 +17,8 @@ function gAuth(){
         stl.innerHTML+= "#auth input{width:calc(100% - 16px);padding:2px 7px;height:30px;text-align:center;";
         stl.innerHTML+= "margin:9px 0;border:1px solid #999;background:#eeeeee77;border-radius:5px;outline:none;}";
         stl.innerHTML+= "#auth input:hover{background:#eeeeeeaa;}";
+        stl.innerHTML+= "button{position:fixed;bottom:30px;width:40px;height:40px;background:#eeeeee55;box-shadow: 0px 0px 10px #333;padding:0;border:0;border-radius:9px;}";
+        stl.innerHTML+= "button:hover{background:#eeeeeecd;cursor:pointer;}";
         hd.appendChild(stl);
         insertG('popup','auth',180,204,50,50,0,0);
         auth = document.getElementById('auth');
@@ -24,7 +26,11 @@ function gAuth(){
         auth.innerHTML+= '<h2>'+usr+'</h2>';
         auth.innerHTML+= '<span>'+user[1]+'</span>';
         auth.innerHTML+= '<input id="pw" type="password" placeholder="Digite sua senha" onkeyup="gLogin(this.value)"></input>';
+        bd.innerHTML+= '<button style="left:30px"><img src="'+pwer64+'" width="25px"></button>'
+        bd.innerHTML+= '<button style="left:80px"><img src="'+cnfg64+'" width="25px"></button>'
         document.getElementById('pw').focus();
+        //await load(5000);
+        //win.reload();
     }else{
         var stl = document.createElement('style');
         stl.innerHTML = "#auth{margin:-67px -135px;}";
