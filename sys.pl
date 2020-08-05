@@ -12,13 +12,13 @@ async function galOS(ins){
         await load(200);
         bd.innerHTML += "<span "+pc+">Carregando encoder de imagem";        
         for(var i = 0; i < 30; i++){await load(25);bd.innerHTML += ".";}
-        bd.innerHTML += "<l "+pl+">i64.pl</l></span><br>";
-        var s2 = document.createElement('script');s2.src = 'i64.pl';hd.appendChild(s2);
+        bd.innerHTML += "<l "+pl+">i64.asm</l></span><br>";
+        var s2 = document.createElement('script');s2.src = 'i64.asm';hd.appendChild(s2);
         await load(200);
         bd.innerHTML += "<span "+pc+">Carregando decoder de imagem";        
         for(var i = 0; i < 30; i++){await load(25);bd.innerHTML += ".";}
-        bd.innerHTML += "<l "+pl+">x64.pl</l></span><br>";
-        var s3 = document.createElement('script');s3.src = 'x64.pl';hd.appendChild(s3);
+        bd.innerHTML += "<l "+pl+">x64.asm</l></span><br>";
+        var s3 = document.createElement('script');s3.src = 'x64.asm';hd.appendChild(s3);
         await load(200);
         bd.innerHTML += "<span "+pc+">Carregando gerenciador de aplicativos";        
         for(var i = 0; i < 21; i++){await load(25);bd.innerHTML += ".";}
