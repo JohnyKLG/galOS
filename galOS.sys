@@ -1,9 +1,5 @@
 function load(ms){return new Promise(resolve => setTimeout(resolve, ms));}
 window.onload = async function(){
-    //win = nw.Window.get();
-    //win.enterFullscreen();
-    //win.setAlwaysOnTop();
-    //win.setVisibleOnAllWorkspaces();
     hd = document.head;
     bd = document.body;
     pc = "style='color:lime'";
