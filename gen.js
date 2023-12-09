@@ -27,7 +27,7 @@ function dragG(id,act){
 function insertG(obj,id,w,h,t,l,b,r,m,i){
     // Objeto gráfico logo
     if(obj === 'logo'){
-        var logo = 'position:absolute;top:'+t+';left:'+l+';bottom:'+b+';right:'+r+';width:'+w+'px;height:'+h+'px;margin:'+m+';background:url('+logo64+');filter:invert('+i+')';
+        var logo = 'position:absolute;top:'+t+';left:'+l+';bottom:'+b+';right:'+r+';width:'+w+'px;height:'+h+'px;margin:'+m+';background:url(data:image/png;base64,'+gOSenc+');filter:invert('+i+')';
         var lgo = document.createElement('logo');lgo.style = logo;lgo.id = id;bd.appendChild(lgo);
     }
     // Objeto gráfico popup
@@ -70,6 +70,8 @@ function gAlert(cnd,act){
     alert = document.getElementById('alert');
     if(cnd == 'empty'){tit = 'Campos obrigatórios!';}
     if(cnd == 'empty'){msg = 'Seu nome, seu e-mail e uma senha são de preenchimento obrigatório';}
+    if(cnd == 'nopic'){tit = 'Não esqueça da foto!';}
+    if(cnd == 'nopic'){msg = 'Use uma foto ou um avatar para a conta';}
     if(cnd == 'mail'){tit = 'Endereços diferentes!';}
     if(cnd == 'mail'){msg = 'Os endereços de e-mail não conferem';}
     if(cnd == 'pass'){tit = 'Senhas diferentes!';}
@@ -79,7 +81,8 @@ function gAlert(cnd,act){
     alert.innerHTML = '<h2>'+tit+'</h2>';
     alert.innerHTML+= '<span>'+msg+'</span><br><br>';
     if(act == '0'){actn = 'alert.remove();bkg.remove()';}else{actn = act;}
-    alert.innerHTML+= '<button class="btn" onclick="'+actn+'">OK</button>';
+    alert.innerHTML+= '<button id="gA_ok" class="btn" onclick="'+actn+'">OK</button>';
+    document.getElementById('gA_ok').focus();
 }
 function genClear(){
     var stl = document.getElementsByTagName("style")[0];
