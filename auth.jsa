@@ -3,12 +3,11 @@ async function gAuth(){
     insertG('logo','logo',100,167,'auto','auto','30px','30px',0,1);
     bd.style.background = "url('"+auth64+"') no-repeat center top fixed";
     bd.style.backgroundSize = 'cover';
-    // Verificar se há usuário
     if(localStorage.getItem('user')){
         userA = localStorage.getItem("user");
         user = userA.split("*");
         if(user[2] == '0'){usr = user[0].split(" ")[0];}else{usr = user[2];}
-        var stl = document.createElement('style');
+        const stl = document.createElement('style');
         stl.innerHTML = "#auth{margin:-102px -90px;text-align:center;}";        
         stl.innerHTML+= "#auth h2{font-size:16pt;margin:0;}";
         stl.innerHTML+= "#auth span{font-size:8pt;margin:0;}";
@@ -29,10 +28,8 @@ async function gAuth(){
         bd.innerHTML+= '<button style="left:30px"><img src="'+pwer64+'" width="25px"></button>'
         bd.innerHTML+= '<button style="left:85px"><img src="'+cnfg64+'" width="25px"></button>'
         document.getElementById('pw').focus();
-        //await load(5000);
-        //win.reload();
     }else{
-        var stl = document.createElement('style');
+        const stl = document.createElement('style');
         stl.innerHTML = "#auth{margin:-67px -135px;}";
         stl.innerHTML+= "#auth .btn{width:130px;height:30px;border:1px solid #888;background:#bbbbbb55;border-radius:5px;outline:none;}";
         stl.innerHTML+= "#auth .btn:hover{box-shadow: 0px 0px 5px #577;border:1px solid #577;background:#eeeeee40;color:#355;cursor:pointer;}";        
@@ -58,7 +55,7 @@ function gUser(ins){
     bd.style.background = "url('"+auth64+"') no-repeat center top fixed";
     bd.style.backgroundSize = 'cover';
     if(ins === 'new'){
-        var stl = document.createElement('style');
+        const stl = document.createElement('style');
         stl.innerHTML = "#pnew{margin:-175px -150px;text-align:right;}";
         stl.innerHTML+= "#pnew h3{float:left;}";
         stl.innerHTML+= "#pnew input{width:calc(100% - 16px);padding:2px 7px;height:30px;margin:3px 0;border:1px solid #999;background:#eeeeee77;border-radius:5px;outline:none;}";
@@ -86,7 +83,7 @@ function gUser(ins){
         pnew.innerHTML+= '<button class="btn" id="cnl" onclick="gAuth()" style="margin-right:10px">Cancelar</button>';
         pnew.innerHTML+= '<button class="btn" onclick="gReg(\'user\')">Concluir</button><img id="gFileOut"/>';
     }else if(ins === 'imp'){
-        var stl = document.createElement('style');
+        const stl = document.createElement('style');
         stl.innerHTML = "#pimp{margin:-91px -149px;}";
         stl.innerHTML+= "#pimp input{width:50px;padding:2px 7px;height:30px;margin:3px 0;";
         stl.innerHTML+= "border:1px solid #999;background:#eeeeee77;border-radius:5px;outline:none;";
@@ -96,7 +93,7 @@ function gUser(ins){
         stl.innerHTML+= "#pimp .btn:hover{box-shadow: 0px 0px 5px #577;border:1px solid #577;background:#eeeeee40;color:#355;cursor:pointer;}";
         stl.innerHTML+= "#pimp #cnl:hover{box-shadow: 0px 0px 5px #755;border:1px solid #755;color:#533;}";
         hd.appendChild(stl);
-        var sep = "&nbsp;-&nbsp;";
+        const sep = "&nbsp;-&nbsp;";
         insertG('popup','pimp',298,182,50,50,0,0);
         pimp = document.getElementById('pimp');
         pimp.innerHTML = '<h3>Importar usuário</h3>';
