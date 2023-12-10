@@ -23,12 +23,12 @@ async function galOS(ins){
         bd.innerHTML += "<span "+pc+">Carregando gerenciador de aplicativos";        
         for(let i = 0; i < 21; i++){await load(25);bd.innerHTML += ".";}
         bd.innerHTML += "<l "+pl+">apps.gjs</l></span><br>";
-        const s4 = document.createElement('script');s4.src = 'apps.gjs';hd.appendChild(s4);
+        const s4 = document.createElement('script');s4.src = 'apps.js';hd.appendChild(s4);
         await load(200);
         bd.innerHTML += "<span "+pc+">Carregando gerenciador de autenticação";        
         for(let i = 0; i < 20; i++){await load(25);bd.innerHTML += ".";}
         bd.innerHTML += "<l "+pl+">auth.jsa</l></span><br>";
-        const s5 = document.createElement('script');s5.src = 'auth.jsa';hd.appendChild(s5);
+        const s5 = document.createElement('script');s5.src = 'auth.js';hd.appendChild(s5);
         await load(100);
         // Definir tag de título para o interpretador
         bd.innerHTML += "<span "+pc+">Identificando para o host";        
@@ -72,6 +72,17 @@ async function galOS(ins){
     }
     // Verificar se há requisição para iniciar o x64
     if(ins === "x64"){
+        bd.innerHTML = '<div id="panel"></div>';const pn = document.getElementById('panel');
+        pn.innerHTML+= '<button onclick="">Aplicativos</button>';
+        pn.innerHTML+= '<button onclick="">Arquivos</button>';
+        pn.innerHTML+= '<button onclick="" id="user">'+usr+'</button>';
+        pn.innerHTML+= '<button onclick="" id="clock"></button>';
+        pn.innerHTML+= '<img id="useri" src="'+user[4]+'" title="'+usr+'">';
+        bd.innerHTML+= '<div id="desk"></div>';
+        const clock = document.getElementById('clock');
+        setInterval(function(){
+            clock.innerHTML = ((new Date).toLocaleString().substr(11,6));
+        }, 10000);
         const stl = document.createElement('style');
         stl.innerHTML = "body{background:url('data:image/png;base64,"+gOSdec+"') no-repeat center top fixed;background-size:cover;margin:0;}";
         stl.innerHTML+= "#panel{position:fixed;top:0px;left:0px;right:0px;height:30px;background:#000000ba;}";
@@ -79,20 +90,9 @@ async function galOS(ins){
         stl.innerHTML+= "#panel #user{position:fixed;top:0px;right:45px;}"
         stl.innerHTML+= "#panel #clock{position:fixed;top:0px;width:100px;left:50%;margin-left:-50px;}"
         stl.innerHTML+= "#panel button:hover{color:#fff;cursor:pointer;}"
-        stl.innerHTML+= "#panel img{position:fixed;top:3px;right:9px;height:32px;border:3px solid #000000ba;border-radius:50%;}";
+        stl.innerHTML+= "#panel #useri{position:fixed;top:3px;right:9px;height:32px;border:3px solid #000000ba;border-radius:50%;}";
         stl.innerHTML+= "#desk{position:fixed;top:0px;left:0px;bottom:0px;right:0;background:url('"+auth64+"') no-repeat center top fixed;background-size:cover;margin:0;}"
         hd.appendChild(stl);
-        bd.innerHTML = '<div id="panel"></div>';const pn = document.getElementById('panel');
-        pn.innerHTML = '<button onclick="">Aplicativos</button>';
-        pn.innerHTML+= '<button onclick="">Arquivos</button>';
-        pn.innerHTML+= '<button onclick="" id="user">'+usr+'</button>';
-        pn.innerHTML+= '<button onclick="" id="clock"></button>';
-        pn.innerHTML+= '<img src="'+user[4]+'" title="'+usr+'">';
-        bd.innerHTML+= '<div id="desk"></div>';
-        const clock = document.getElementById('clock');
-        setInterval(function(){
-            clock.innerHTML = ((new Date).toLocaleString().substr(11, 8));
-        }, 1000);
     }
 }
 function gDock(){
