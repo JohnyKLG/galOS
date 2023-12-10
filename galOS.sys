@@ -1,4 +1,20 @@
 function load(ms){return new Promise(resolve => setTimeout(resolve, ms));}
+function gOS_boot() {
+  if (!document.fullscreenElement &&    // alternative standard method
+      !document.mozFullScreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement ) {  // current working methods
+    if (document.documentElement.requestFullscreen) {
+      document.documentElement.requestFullscreen();
+    } else if (document.documentElement.msRequestFullscreen) {
+      document.documentElement.msRequestFullscreen();
+    } else if (document.documentElement.mozRequestFullScreen) {
+      document.documentElement.mozRequestFullScreen();
+    } else if (document.documentElement.webkitRequestFullscreen) {
+      document.documentElement.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
+    }
+  }
+  galOS('boot');
+  bd.removeEventListener("click", gOS_boot);
+}
 window.onload = async function(){
     hd = document.head;
     bd = document.body;
@@ -17,5 +33,7 @@ window.onload = async function(){
     var sys = document.createElement('script');
     sys.src = 'sys.js';
     hd.appendChild(sys);
-    await load(2000);galOS('boot');
+    await load(2000);
+    bd.innerHTML += "<br><br><br><br>Clique na tela para iniciar!";
+    bd.addEventListener("click", gOS_boot);
 }
