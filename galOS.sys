@@ -15,7 +15,7 @@ window.onload = async function(){
     for(var i = 0; i < 30; i++){await load(50);bd.innerHTML += ".";}
     bd.innerHTML += "galOS.sys";
     var sys = document.createElement('script');
-    sys.src = 'sys.jsg';
+    sys.src = 'sys.js';
     hd.appendChild(sys);
     await load(2000);galOS('boot');
 }
