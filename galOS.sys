@@ -1,19 +1,17 @@
 function load(ms){return new Promise(resolve => setTimeout(resolve, ms));}
-function gOS_boot() {
-  if (!document.fullscreenElement &&    // alternative standard method
-      !document.mozFullScreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement ) {  // current working methods
-    if (document.documentElement.requestFullscreen) {
-      document.documentElement.requestFullscreen();
-    } else if (document.documentElement.msRequestFullscreen) {
-      document.documentElement.msRequestFullscreen();
-    } else if (document.documentElement.mozRequestFullScreen) {
-      document.documentElement.mozRequestFullScreen();
-    } else if (document.documentElement.webkitRequestFullscreen) {
-      document.documentElement.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
+function gOS_boot(){
+    if(document.documentElement.requestFullscreen){
+        document.documentElement.requestFullscreen();
+    }else if (document.documentElement.msRequestFullscreen){
+        document.documentElement.msRequestFullscreen();
+    }else if (document.documentElement.mozRequestFullScreen){
+        document.documentElement.mozRequestFullScreen();
+    }else if (document.documentElement.webkitRequestFullscreen){
+        document.documentElement.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
     }
-  }
-  galOS('boot');
-  bd.removeEventListener("click", gOS_boot);
+    document.documentElement.style.cursor = 'none';
+    galOS('boot');
+    bd.removeEventListener("click", gOS_boot);
 }
 window.onload = async function(){
     hd = document.head;
@@ -24,7 +22,6 @@ window.onload = async function(){
     bd.style.color = "#fff";
     bd.style.font ="12px monospace"
     bd.setAttribute('ondragover','event.preventDefault()');
-    document.documentElement.style.cursor = 'none';
     bd.innerHTML = "<br>KLG VM BIOS v2.4.1";
     bd.innerHTML += "<br>github.com/JohnyKLG/galOS";
     await load(2000);bd.innerHTML += "<br><br><br><br><br> Inicializando ROM";
