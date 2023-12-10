@@ -82,7 +82,7 @@ async function galOS(ins){
         const clock = document.getElementById('clock');
         setInterval(function(){
             clock.innerHTML = ((new Date).toLocaleString().substr(11,6));
-        }, 10000);
+        }, 5000);
         const stl = document.createElement('style');
         stl.innerHTML = "body{background:url('data:image/png;base64,"+gOSdec+"') no-repeat center top fixed;background-size:cover;margin:0;}";
         stl.innerHTML+= "#panel{position:fixed;top:0px;left:0px;right:0px;height:30px;background:#000000ba;}";
